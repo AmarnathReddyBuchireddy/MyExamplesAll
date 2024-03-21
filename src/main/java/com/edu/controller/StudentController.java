@@ -18,7 +18,7 @@ import com.edu.entity.Student;
 import com.edu.service.StudentService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/student")
 public class StudentController {
 
 	@Autowired
@@ -30,13 +30,13 @@ public class StudentController {
 		return new ResponseEntity<>(students, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/student/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Student> getStudentDetails(@PathVariable("id") Long id) {
 		Student studentid = studentService.getStudentDetails(id);
 		return new ResponseEntity<>(studentid, HttpStatus.ACCEPTED);
 	}
 
-	@PostMapping("/student")
+	@PostMapping("/savedetails")
 	public ResponseEntity<Student> saveStudentDetails(@RequestBody Student student) {
 		Student studentss = studentService.saveStudentDetails(student);
 		return new ResponseEntity<>(studentss, HttpStatus.CREATED);
